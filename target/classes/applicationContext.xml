@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:p="http://www.springframework.org/schema/p" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+ 
+   
+	
+	<!-- 
+    <bean id="MyXMLApp" class="com.journaldev.spring.di.consumer.MyXMLApplication">
+        <constructor-arg>
+            <bean class="org.supermartng.di.services.TwitterService" />
+        </constructor-arg>
+    </bean>
+-->
+    <bean id="twitter" class="org.supermartng.di.services.TwitterService"></bean>
+    <bean id="MyXMLApp" class="org.supermartng.di.consumer.MyXMLApplication">
+        <property name="service" ref="twitter"></property>
+    </bean>
+</beans>
